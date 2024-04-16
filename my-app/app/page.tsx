@@ -4,7 +4,7 @@ import RandomFox from "@/componentes/RandomFox";
 import Head from "next/head";
 
 //tipado del useState -> es el tipado de c/elemnt del array
-type ImageItem = {id: number, url: string};
+type ImageItem = {id: number, url: string, };
 
 //funcion para elegir de forma random un num de 1 al 123 para las img de la pagina
 const random  = () => Math.floor(Math.random() * 123) + 1;
@@ -46,7 +46,16 @@ export default function Home() {
         {
           images.map((image, index) => (
             <div className="p-4" key={index}>
-              <RandomFox image={image.url} alt="Not Found"/>
+              <RandomFox 
+                width={320} 
+                height="auto"
+                image={image.url} 
+                alt="Not Found"
+                onClick={() => console.log("pepe")}
+                /* onLazyLoad={(img) => {
+                  console.log(`Image #${index + 1} cargada. Nodo:`, img);
+                }} */
+              />
             </div>
         ))}
       </main>
